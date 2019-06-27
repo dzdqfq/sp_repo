@@ -20,6 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 public class ItemServiceFallback implements FallbackProvider {
 	@Override
 	public String getRoute() {
+		//lalala
 	    //当执行item-service失败，
 	    //应用当前这个降级类
 		return "item-service";
