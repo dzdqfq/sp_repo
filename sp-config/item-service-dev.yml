@@ -5,7 +5,18 @@ spring:
     host: 192.168.92.128
     port: 5672
     username: admin
-    password: admin   
+    password: admin  
+  cloud:
+
+    inetutils:
+
+      ignored-interfaces:
+
+        - VM.*
+
+      preferred-networks:
+
+        - 176.135.17 
 #server:
 #  port: 8001
   
@@ -13,7 +24,17 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
+  instance:
 
+    prefer-ip-address: true
+
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+
+  instance:
+
+    prefer-ip-address: true
+
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
 ---
 spring:
   profiles: item1
